@@ -1,6 +1,28 @@
 <template name="case">
   {{#if currentUser}}
     <h1>Manage Cases</h1>
+
+    <br />
+
+    <form id="add-case">
+      <label for="name">Name: </label>
+      <input type="text" name="name" placeholder="Case Name" />
+
+      <input type="submit" value="Add" />
+    </form>
+
+    <br /> <br /> <hr> <br /> <br />
+
+    {{#if cases}}
+      <ul class="case-list">
+        {{#each caseList}}
+          <li class="case-row"><strong>Case name:</strong> {{ caseName }}
+            <input type="button" value="X" class="case-remove" /></li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No cases found.</p>
+    {{/if}}
   {{else}}
     {{> dashboard}}
   {{/if}}

@@ -42,3 +42,25 @@
 a.login-close-text {
 	color: black !important;
 }
+
+.case-list {
+	padding: 25px;
+	background-color: #ddd;
+	border-radius: 5px;
+	list-style-type: none;
+}
+
+.case-row {
+	background-color: #eee;
+	padding: 15px;
+	position: relative;
+}
+
+.case-row .case-remove {
+	padding: 5px;
+	position: absolute;
+	right: 0;
+	top: 15%;
+	bottom: 15%;
+	margin-right: 10px;
+}
