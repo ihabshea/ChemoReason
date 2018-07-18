@@ -3,11 +3,24 @@
 </head>
 
 <body>
-  <h1>ChemoReason</h1>
-
   {{> main}}
 </body>
 
 <template name="main">
-  {{> loginButtons}}
+    {{> nav}}
+  
+  <div id="main">
+    <h1>ChemoReason</h1>
+  </div>
+</template>
+
+<template name="nav">
+  <div id="nav">
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">Cases</a></li>
+      <li><a href="">Profile</a></li>
+      <li>{{> loginButtons}}</li>
+    </ul>
+  </div>
 </template>
