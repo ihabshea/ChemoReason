@@ -2,25 +2,21 @@
   <title>ChemoReason</title>
 </head>
 
-<body>
-  {{> main}}
-</body>
-
-<template name="main">
-    {{> nav}}
-  
+<template name="main">  
   <div id="main">
-    <h1>ChemoReason</h1>
+    {{> nav}}
+
+    {{> Template.dynamic template=main}}
   </div>
 </template>
 
 <template name="nav">
   <div id="nav">
     <ul>
-      <li><a href="">Home</a></li>
+      <li><a href="/">Home</a></li>
       {{#if currentUser}}
-        <li><a href="">Cases</a></li>
-        <li><a href="">Profile</a></li>
+        <li><a href="/case">Cases</a></li>
+        <li><a href="/profile">Profile</a></li>
       {{/if}}
       <li>{{> loginButtons}}</li>
     </ul>
