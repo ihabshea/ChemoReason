@@ -10,7 +10,7 @@
 
 #nav {
 	position: fixed !important;
-	background-color: grey;
+	background-color: #555;
 	width: 100%;
 	color: white;
 	left: 0;
@@ -29,6 +29,10 @@
 
 #nav ul li:not(:last-child) {
 	border-right: 1px solid white;
+}
+
+#nav ul li.active {
+	background-color: #222;
 }
 
 #nav ul li a {

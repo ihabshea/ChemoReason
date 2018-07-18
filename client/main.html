@@ -4,7 +4,7 @@
 
 <template name="main">  
   <div id="main">
-    {{> nav}}
+    {{> Template.dynamic template=nav}}
 
     {{> Template.dynamic template=main}}
   </div>
@@ -13,10 +13,10 @@
 <template name="nav">
   <div id="nav">
     <ul>
-      <li><a href="/">Home</a></li>
+      <li class="{{ activeLink '/' }}"><a href="/">Home</a></li>
       {{#if currentUser}}
-        <li><a href="/case">Cases</a></li>
-        <li><a href="/profile">Profile</a></li>
+        <li class="{{ activeLink '/case' }}"><a href="/case">Cases</a></li>
+        <li class="{{ activeLink '/profile' }}"><a href="/profile">Profile</a></li>
       {{/if}}
       <li>{{> loginButtons}}</li>
     </ul>

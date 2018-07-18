@@ -8,18 +8,27 @@ import './view/case.html';
 
 FlowRouter.route('/', {
 	action() {
-		BlazeLayout.render('main', { main: 'dashboard' });
+    BlazeLayout.reset();
+		BlazeLayout.render('main', { nav:'nav', main: 'dashboard' });
 	}
 });
 
 FlowRouter.route('/profile', {
 	action() {
-		BlazeLayout.render('main', { main: 'profile' });
+    BlazeLayout.reset();
+		BlazeLayout.render('main', { nav:'nav', main: 'profile' });
 	}
 });
 
 FlowRouter.route('/case', {
 	action() {
-		BlazeLayout.render('main', { main: 'case' });
+    BlazeLayout.reset();
+		BlazeLayout.render('main', { nav:'nav', main: 'case' });
 	}
+});
+
+Template.nav.helpers({
+  activeLink(link) {
+    return (FlowRouter._current.path === link) ? "active" : "";
+  }
 });
