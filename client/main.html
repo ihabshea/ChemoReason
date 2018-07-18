@@ -18,8 +18,10 @@
   <div id="nav">
     <ul>
       <li><a href="">Home</a></li>
-      <li><a href="">Cases</a></li>
-      <li><a href="">Profile</a></li>
+      {{#if currentUser}}
+        <li><a href="">Cases</a></li>
+        <li><a href="">Profile</a></li>
+      {{/if}}
       <li>{{> loginButtons}}</li>
     </ul>
   </div>
