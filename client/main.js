@@ -1,22 +1,64 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Cases } from '../lib/collection/collections.js';
 
 import './main.html';
+import './view/dashboard.html';
+import './view/profile.html';
+import './view/case.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+FlowRouter.route('/', {
+	action() {
+    BlazeLayout.reset();
+		BlazeLayout.render('main', { nav:'nav', main: 'dashboard' });
+	}
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+FlowRouter.route('/profile', {
+	action() {
+    BlazeLayout.reset();
+		BlazeLayout.render('main', { nav:'nav', main: 'profile' });
+	}
 });
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+FlowRouter.route('/case', {
+	action() {
+    BlazeLayout.reset();
+		BlazeLayout.render('main', { nav:'nav', main: 'case' });
+	}
+});
+
+Template.nav.helpers({
+  activeLink(link) {
+    return (FlowRouter._current.path === link) ? "active" : "";
+  }
+});
+
+Template.case.events({
+  'submit #add-case': function(e) {
+    e.preventDefault();
+    var caseName = e.target.name.value;
+    Meteor.call('insertCase', caseName);
+    e.target.reset();
   },
+
+  'click .case-remove': function(e) {
+    Meteor.call('removeCase', this._id);
+  }
+});
+
+Template.case.helpers({
+  cases() {
+    return Cases.find().fetch().length > 0;
+  },
+
+  caseList() {
+    return Cases.find().fetch();
+  }
+});
+
+Template.profile.helpers({
+  getEmail() {
+    return Meteor.users.findOne({ _id: Meteor.userId }).emails[0].address;
+  }
 });

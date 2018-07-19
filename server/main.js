@@ -1,5 +1,19 @@
 import { Meteor } from 'meteor/meteor';
+import { Cases } from '../lib/collection/collections.js';
 
 Meteor.startup(() => {
-  // code to run on server at startup
 });
+
+if (Meteor.isServer) {
+  Meteor.methods({
+    insertCase: function(name) {
+      Cases.insert({
+        caseName: name
+      });
+    },
+
+    removeCase: function(id) {
+      Cases.remove(id);
+    }
+  });
+}
