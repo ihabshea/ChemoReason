@@ -57,8 +57,8 @@ Template.case.helpers({
   }
 });
 
-    return Meteor.users.findOne({ _id: Meteor.userId }).emails[0].address;
-  getEmail() {
 Template.profile.helpers({
+  getEmail() {
+    return Meteor.users.findOne({ _id: Meteor.userId }).emails[0].address;
   }
-})
+});
