@@ -2,24 +2,23 @@
   <title>ChemoReason</title>
 </head>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
+<template name="main">  
+  <div id="main">
+    {{> Template.dynamic template=nav}}
 
-  {{> hello}}
-  {{> info}}
-</body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+    {{> Template.dynamic template=main}}
+  </div>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="nav">
+  <div id="nav">
+    <ul>
+      <li class="{{ activeLink '/' }}"><a href="/">Home</a></li>
+      {{#if currentUser}}
+        <li class="{{ activeLink '/case' }}"><a href="/case">Cases</a></li>
+        <li class="{{ activeLink '/profile' }}"><a href="/profile">Profile</a></li>
+      {{/if}}
+      <li>{{> loginButtons}}</li>
+    </ul>
+  </div>
 </template>
