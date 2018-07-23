@@ -39,7 +39,7 @@
 	color: white;
 }
 
-a.login-close-text {
+#login-dropdown-list a {
 	color: black !important;
 }
 
