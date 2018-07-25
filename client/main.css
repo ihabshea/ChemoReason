@@ -1,10 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-}
-
-html, body {
-  font-family: sans-serif;
+	font-family: sans-serif;
 }
 
 #main {
@@ -12,10 +9,12 @@ html, body {
 }
 
 #nav {
-	position: fixed;
-	background-color: grey;
+	position: fixed !important;
+	background-color: #555;
 	width: 100%;
 	color: white;
+	left: 0;
+	top: 0;
 }
 
 #nav ul {
@@ -32,10 +31,36 @@ html, body {
 	border-right: 1px solid white;
 }
 
+#nav ul li.active {
+	background-color: #222;
+}
+
 #nav ul li a {
 	color: white;
 }
 
-a.login-close-text {
+#login-dropdown-list a {
 	color: black !important;
+}
+
+.case-list {
+	padding: 25px;
+	background-color: #ddd;
+	border-radius: 5px;
+	list-style-type: none;
+}
+
+.case-row {
+	background-color: #eee;
+	padding: 15px;
+	position: relative;
+}
+
+.case-row .case-remove {
+	padding: 5px;
+	position: absolute;
+	right: 0;
+	top: 15%;
+	bottom: 15%;
+	margin-right: 10px;
 }

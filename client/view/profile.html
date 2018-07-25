@@ -1,0 +1,11 @@
+<template name="profile">
+  {{#if currentUser}}
+    <h1>Manage Profile</h1>
+
+    <br />
+
+    <p><strong>Your e-mail: </strong>{{ getEmail }}</p>
+  {{else}}
+    {{> dashboard}}
+  {{/if}}
+</template>
