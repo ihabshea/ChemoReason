@@ -1,0 +1,38 @@
+
+
+<!--<head>
+   <title>Doctor Review</title>
+   <meta charset="utf-8">
+   <link href="Review.css" rel="stylesheet" type="text/css">
+   </head>-->
+<template name="DoctorReview">
+   {{#if currentUser}}
+     <form id="doctor-review-form">
+        <h1>Doctor Review</h1>
+        <label>First Name: </label>
+        <input type="text" name="firstName" size="30"><br>
+        <br>
+        <label>Last Name: </label>
+        <input type="text" name="lastName" size="30"><br>
+        <br>
+        <br>
+        <br>
+        <h3>Write down your Comment if you have any to enhance your exprience in the future</h3>
+        <input type="text" name="commentField" size="100" height="50"> <br>
+        <br>
+        <br>
+        <label><input type="radio" name="radio" value="Amazing">&nbsp;Amazing</label><br />
+        <label><input type="radio" name="radio" value="Very Good">&nbsp;Very Good</label><br />
+        <label><input type="radio" name="radio" value="Good">&nbsp;Good</label><br />
+        <label><input type="radio" name="radio" value="Not Bad">&nbsp;Not Bad</label><br />
+        <label><input type="radio" name="radio" value="Bad">&nbsp;Bad</label><br />
+        <br>
+        <input type="submit" value="Send" />
+     </form>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+   {{/if}}
+</template>
