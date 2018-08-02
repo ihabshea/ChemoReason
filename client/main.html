@@ -2,7 +2,7 @@
   <title>ChemoReason</title>
 </head>
 
-<template name="main">  
+<template name="main">
   <div id="main">
     {{> Template.dynamic template=nav}}
 
@@ -17,6 +17,11 @@
       {{#if currentUser}}
         <li class="{{ activeLink '/case' }}"><a href="/case">Cases</a></li>
         <li class="{{ activeLink '/profile' }}"><a href="/profile">Profile</a></li>
+        <li class="{{ activeLink '/DoctorReview' }}"><a href="/DoctorReview">DoctorReview</a></li>
+        <li class="{{ activeLink '/PatientReview' }}"><a href="/PatientReview">PatientReview</a></li>
+
+
+
       {{/if}}
       <li>{{> loginButtons}}</li>
     </ul>
